@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: marvin <marvin@student.42.fr>              +#+  +:+       +#+         #
+#    By: jtorre-s <jtorre-s@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/05/18 17:09:44 by jtorre-s          #+#    #+#              #
-#    Updated: 2023/05/22 12:34:50 by marvin           ###   ########.fr        #
+#    Updated: 2023/09/07 16:18:24 by jtorre-s         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -19,20 +19,15 @@ CC = gcc -Werror -Wall -Wextra
 LIBFT_DIR = ./libft
 LIBFT = $(LIBFT_DIR)/libft.a
 
-PRINT_DIR = ../ft_printf42
-PRINTF = $(PRINT_DIR)/ft_printf.a
-
-SRC_DIR = .
+SRC_DIR = ./src
 
 CFLAGS =  -Wall -Wextra -Werror
 
-SRC = pipex.c
+SRC = pipex.c pipex_utils.c
 
-$(NAME): $(OBJ) $(LIBFT)
+$(NAME): $(OBJ) $(LIBFT) $(PRINTF)
 	$(CC) $(OBJ) -L ./libft -l ft  -o $(NAME)
-	$(CC) $(OBJ) -L ./ft_printf42 -l ft  -o $(NAME)
 	
-
 $(LIBFT):
 	make -C $(LIBFT_DIR)
 
